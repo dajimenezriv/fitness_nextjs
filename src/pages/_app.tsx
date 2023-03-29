@@ -1,6 +1,21 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
+import '@/styles/globals.scss';
+import type { AppProps } from 'next/app';
+import { wrapper } from '@/store/store';
+import Layout from '@/components/layout';
+import Head from 'next/head';
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+function App({ Component, pageProps }: AppProps) {
+  return (
+    <>
+      <Head>
+        <title>Hermes</title>
+      </Head>
+
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </>
+  )
 }
+
+export default wrapper.withRedux(App);
