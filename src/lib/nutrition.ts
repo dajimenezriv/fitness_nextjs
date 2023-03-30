@@ -3,10 +3,11 @@ import { Food } from '@/types/models';
 import axios from 'axios';
 
 export async function fetchFoods() {
-  const res = await axios.get<{
-    foods: Array<Food>
-  }>('http://localhost:3000/api/nutrition/foods');
-  const { foods } = res.data;
+  // const res = await axios.get<{
+  //   foods: Array<Food>
+  // }>(`http://localhost:3000/api/nutrition/foods`);
+  // const { foods } = res.data;
+  const foods = createFoods(10);
   return foods;
 }
 
