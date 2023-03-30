@@ -17,7 +17,7 @@ export default function New() {
     <div className={styles.new}>
       <div className={styles.form}>
         {Object.entries(food).map(([key, value]) => (
-          <div className={styles.field}>
+          <div key={key} className={styles.field}>
             <div>
               {key}
             </div>

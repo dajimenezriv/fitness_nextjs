@@ -8,7 +8,7 @@ export interface InitialState {
 }
 
 const initialState: InitialState = {
-  foods: getFoods(),
+  foods: [],
 };
 
 export const slice = createSlice({
