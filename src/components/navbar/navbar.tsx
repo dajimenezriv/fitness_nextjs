@@ -17,7 +17,7 @@ export default function Navbar() {
         <Link href="/nutrition/new">New Food</Link>
       </div>
 
-      <Link href="/profile">
+      <Link href="/login">
         <Image
           src="images/profile.svg"
           width={50}

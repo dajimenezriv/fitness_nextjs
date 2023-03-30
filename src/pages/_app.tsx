@@ -8,7 +8,7 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Hermes</title>
+        <title>Fitness</title>
       </Head>
 
       <Layout>

@@ -1,9 +1,38 @@
-import Head from "next/head";
+import { Food } from '@/types/models';
+import { useState } from 'react';
+import styles from './index.module.scss';
+
+const emptyFood: Food = {
+  name: '',
+  calories: 0,
+  carbs: 0,
+  proteins: 0,
+  fats: 0,
+};
 
 export default function New() {
-  return (
-    <div>
+  const [food, setFood] = useState<Food>(emptyFood)
 
+  return (
+    <div className={styles.new}>
+      <div className={styles.form}>
+        {Object.entries(food).map(([key, value]) => (
+          <div className={styles.field}>
+            <div>
+              {key}
+            </div>
+
+            <input
+              type="text"
+              value={value}
+              onChange={(e) => setFood({
+                ...food,
+                [key]: e.target.value,
+              })}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

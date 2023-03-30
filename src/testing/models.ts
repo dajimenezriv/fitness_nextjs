@@ -1,6 +1,7 @@
 import { Food } from '@/types/models';
 import { getRandomInt } from '@/utils';
 
+
 export const createFoods = (count: number) => {
   const min = 1;
   const max = 100;
