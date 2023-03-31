@@ -30,6 +30,7 @@ export default function Navbar() {
         <Image
           className={styles.avatar}
           loader={() => profileSrc}
+          unoptimized
           src={profileSrc}
           width={50}
           height={50}

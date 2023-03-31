@@ -17,7 +17,7 @@ export default function ProfileComponent({ profile }: Props) {
           className={styles.avatar}
           loader={() => profile.avatar_url}
           src={profile.avatar_url}
-          unoptimized={true}
+          unoptimized
           width={200}
           height={200}
           alt="Avatar"
@@ -34,7 +34,18 @@ export default function ProfileComponent({ profile }: Props) {
 }
 
 export async function getServerSideProps(context: GetServerSideProps) {
-  const session = await getSession(context);
+  const { req } = context;
+  const session = await getSession({ req });
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/signin',
+        permanent: false,
+      }
+    }
+  }
+
   const profile = await getProfile(session?.accessToken);
   return {
     props: {
