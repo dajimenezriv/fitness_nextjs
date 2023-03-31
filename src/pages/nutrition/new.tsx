@@ -1,6 +1,6 @@
 import { Food } from '@/types/models';
 import { useState } from 'react';
-import styles from './index.module.scss';
+import styles from './new.module.scss';
 
 const emptyFood: Food = {
   name: '',

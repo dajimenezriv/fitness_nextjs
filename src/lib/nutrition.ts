@@ -1,21 +1,22 @@
 import { createFoods } from '@/testing/models';
-import { Food } from '@/types/models';
-import axios from 'axios';
+import type { Food } from '@/types/models';
+import useSWR from 'swr';
+
+const foods = createFoods(10);
+
+export function useFoods() {
+  const { data: foods } = useSWR<Array<Food>>('api/foods');
+  return { foods };
+}
 
 export async function fetchFoods() {
-  // const res = await axios.get<{
-  //   foods: Array<Food>
-  // }>(`http://localhost:3000/api/nutrition/foods`);
-  // const { foods } = res.data;
-  const foods = createFoods(10);
   return foods;
 }
 
 export async function getFoods() {
-  return await fetchFoods();
+  return foods;
 }
 
 export async function getFood(id: number) {
-  const foods = await fetchFoods();
   return foods.find((food) => food.id === id);
 }
