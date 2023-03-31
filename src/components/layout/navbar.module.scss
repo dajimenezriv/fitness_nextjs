@@ -1,0 +1,8 @@
+.main {
+  margin-top: var(--navbar-height);
+  padding: var(--main-padding);
+  display: flex;
+  justify-content: center;
+  height: calc(100vh - #{var(--navbar-height)});
+  width: 100%;
+}

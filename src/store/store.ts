@@ -1,13 +1,13 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import auth from './auth';
-import nutrition from './nutrition';
+import foods from './foods';
 import { createWrapper } from 'next-redux-wrapper';
 
 const makeStore = () =>
   configureStore({
     reducer: {
       auth,
-      nutrition,
+      foods,
     },
     devTools: true,
   });

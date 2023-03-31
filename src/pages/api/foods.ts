@@ -4,10 +4,10 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 
 export default function handler(
-  req: NextApiRequest, 
+  req: NextApiRequest,
   res: NextApiResponse<{
     foods: Array<Food>,
   }>
-  ) {
+) {
   res.status(200).json({ foods: createFoods(10) });
 }

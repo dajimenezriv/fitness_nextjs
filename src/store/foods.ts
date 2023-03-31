@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { HYDRATE } from 'next-redux-wrapper';
 import { Food } from '@/types/models';
-import { getFoods } from '@/lib/nutrition';
+import { getFoods } from '@/lib/foods';
 
 export interface InitialState {
   foods: Array<Food>;
@@ -12,7 +12,7 @@ const initialState: InitialState = {
 };
 
 export const slice = createSlice({
-  name: 'nutrition',
+  name: 'foods',
   initialState,
   reducers: {
     updateState(state, { payload }) {
@@ -26,7 +26,7 @@ export const slice = createSlice({
     [HYDRATE]: (state, { payload }) => {
       return {
         ...state,
-        ...payload.nutrition,
+        ...payload.foods,
       };
     },
   },
