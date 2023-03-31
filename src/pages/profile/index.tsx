@@ -33,7 +33,7 @@ export default function ProfileComponent({ profile }: Props) {
   );
 }
 
-export async function getServerSideProps(context: GetServerSideProps) {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const { req } = context;
   const session = await getSession({ req });
 
@@ -46,10 +46,11 @@ export async function getServerSideProps(context: GetServerSideProps) {
     }
   }
 
+  // @ts-ignore
   const profile = await getProfile(session?.accessToken);
   return {
     props: {
       profile,
     }
   }
-}
+};

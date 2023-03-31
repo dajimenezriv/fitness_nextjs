@@ -4,6 +4,7 @@ import Image from 'next/image';
 import type { Providers } from '@/types/auth';
 import { ReactElement } from 'react';
 import Empty from '@/components/layout/empty';
+import { GetServerSideProps } from 'next';
 
 interface Props {
   providers: Providers
@@ -33,21 +34,26 @@ export default function SignIn({ providers }: Props) {
   )
 }
 
-export async function getServerSideProps(context) {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const { req } = context;
   const session = await getSession({ req });
   const providers = await getProviders();
+
   if (session) {
     return {
-      redirect: { destination: "/" },
+      redirect: {
+        destination: '/',
+        permanent: false,
+      }
     };
   }
+
   return {
     props: {
       providers,
     },
   }
-}
+};
 
 SignIn.getLayout = function getLayout(page: ReactElement) {
   return (

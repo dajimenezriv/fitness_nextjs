@@ -1,4 +1,4 @@
-import { getFood, getFoods } from "@/lib/foods"
+import { getFood, getFoods } from '@/lib/foods';
 import { Food } from "@/types/models";
 
 interface Props {
