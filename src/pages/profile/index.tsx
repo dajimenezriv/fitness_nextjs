@@ -11,7 +11,7 @@ interface Props {
 
 export default function ProfileComponent({ profile }: Props) {
   return (
-    <div>
+    <div className={styles.container}>
       <div className={styles.header}>
         <Image
           className={styles.avatar}

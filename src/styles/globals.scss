@@ -1,5 +1,9 @@
 :root {
+  --left-panel-z-index: 2;
+  --navbar-z-index: 1;
   --navbar-height: 60px;
+  --left-panel-width: 400px;
+  --main-padding: 20px;
 
   --box-shadow-color: #bcbcbc;
 }
@@ -18,11 +22,6 @@ body {
 
 body {
   background-color: white;
-}
-
-main {
-  margin-top: var(--navbar-height);
-  padding: 20px;
 }
 
 a {

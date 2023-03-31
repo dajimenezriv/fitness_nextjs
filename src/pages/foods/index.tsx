@@ -1,10 +1,11 @@
 import Table from '@/components/table/table';
-import { getFoods } from '@/lib/nutrition';
+import { getFoods } from '@/lib/foods';
 import { selectState } from '@/store/store';
 import { Food } from '@/types/models';
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
 import styles from './index.module.scss';
+import LeftPanel from '@/components/left_panel/left_panel';
 
 const keys: Array<keyof Food> = [
   'name',
@@ -18,13 +19,17 @@ interface Props {
   foods: Array<Food>,
 }
 
-export default function Nutrition({
+export default function Foods({
   foods
 }: Props) {
-  // const { foods } = useSelector(selectState).nutrition;
+  // const { foods } = useSelector(selectState).foods;
 
   return (
-    <>
+    <div className={styles.container}>
+      <LeftPanel>
+        Hola
+      </LeftPanel>
+
       <Table title='Foods'>
         <tr className={styles.subtitle}>
           {(keys).map((key) => (
@@ -37,7 +42,7 @@ export default function Nutrition({
             {(keys).map((key) => {
               if (key === 'name') return (
                 <td key={`${food.id}${key}`}>
-                  <Link href={`/nutrition/${food.id}`}>
+                  <Link href={`/foods/${food.id}`}>
                     {food[key]}
                   </Link>
                 </td>
@@ -52,7 +57,7 @@ export default function Nutrition({
           </tr>
         ))}
       </Table>
-    </>
+    </div>
   );
 }
 

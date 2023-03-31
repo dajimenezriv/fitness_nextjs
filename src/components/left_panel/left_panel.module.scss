@@ -1,0 +1,10 @@
+.left_panel {
+  position: fixed;
+  top: var(--navbar-height);
+  left: 0;
+  width: var(--left-panel-width);
+  height: calc(100vh - #{var(--navbar-height)});
+  background-color: white;
+  box-shadow: 2px 0 2px -2px var(--box-shadow-color);
+  z-index: var(--left-panel-z-index);
+}

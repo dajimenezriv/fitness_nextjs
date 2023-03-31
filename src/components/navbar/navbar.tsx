@@ -21,9 +21,8 @@ export default function Navbar() {
       />
 
       <div className={styles.links}>
-        <Link href="/">Home</Link>
-        <Link href="/nutrition">Foods</Link>
-        <Link href="/nutrition/new">New Food</Link>
+        <Link href="/foods">Foods</Link>
+        <Link href="/foods/new">New Food</Link>
       </div>
 
       <Link href="/profile">
@@ -32,8 +31,8 @@ export default function Navbar() {
           loader={() => profileSrc}
           unoptimized
           src={profileSrc}
-          width={50}
-          height={50}
+          width={45}
+          height={45}
           alt="profile"
         />
       </Link>
